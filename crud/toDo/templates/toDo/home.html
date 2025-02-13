@@ -5,7 +5,7 @@
 <div class="container text-center">
   <div class="row align-items-center divGris">
     <h1 class="title">Lista de mis actividades</h1>
-    <ul
+    <!-- <ul
       style="
         padding: 20px;
         display: inline;
@@ -13,22 +13,53 @@
         align-items: center;
         margin: auto;
       "
-    >
-      {% for tarea in tareas %}
-      <div
-        class="container text-center"
-        style="margin: 25px auto; width: 300px"
-      >
-        <li class="liActividad">{{tarea}}</li>
-        <button class="btn btn-danger">
-          <a href="{% url 'eliminar' tarea.id %}" class="btnStyle">Eliminar</a>
-        </button>
-        <button class="btn btn-secondary">
-          <a href="{% url 'editar' tarea.id %}" class="btnStyle">Editar</a>
-        </button>
-      </div>
-      {% endfor %}
-    </ul>
+    > -->
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Tarea</th>
+          <th scope="col">Editar</th>
+          <th scope="col">Eliminar</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for tarea in tareas %}
+        <!-- <div
+            class="container text-center"
+            style="margin: 25px auto; width: 300px"
+          > -->
+        <tr>
+          <th scope="row">-</th>
+          <td>{{tarea}}</td>
+          <td>
+            <button class="btn btn-secondary">
+              <a href="{% url 'editar' tarea.id %}" class="btnStyle">Editar</a>
+            </button>
+          </td>
+          <td>
+            <button class="btn btn-danger">
+              <a href="{% url 'eliminar' tarea.id %}" class="btnStyle"
+                >Eliminar</a
+              >
+            </button>
+          </td>
+        </tr>
+
+        <!-- <li class="liActividad">{{tarea}}</li>
+            <button class="btn btn-danger">
+              <a href="{% url 'eliminar' tarea.id %}" class="btnStyle"
+                >Eliminar</a
+              >
+            </button>
+            <button class="btn btn-secondary">
+              <a href="{% url 'editar' tarea.id %}" class="btnStyle">Editar</a>
+            </button> -->
+        <!-- </div> -->
+        {% endfor %}
+      </tbody>
+    </table>
+    <!-- </ul> -->
   </div>
 </div>
 
