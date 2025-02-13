@@ -1,0 +1,35 @@
+{% extends 'toDo/layout.html'%} {% block content %}
+<br />
+<br />
+<br />
+<div class="container text-center">
+  <div class="row align-items-center divGris">
+    <h1 class="title">Lista de mis actividades</h1>
+    <ul
+      style="
+        padding: 20px;
+        display: inline;
+        width: 300px;
+        align-items: center;
+        margin: auto;
+      "
+    >
+      {% for tarea in tareas %}
+      <div
+        class="container text-center"
+        style="margin: 25px auto; width: 300px"
+      >
+        <li class="liActividad">{{tarea}}</li>
+        <button class="btn btn-danger">
+          <a href="{% url 'eliminar' tarea.id %}" class="btnStyle">Eliminar</a>
+        </button>
+        <button class="btn btn-secondary">
+          <a href="{% url 'editar' tarea.id %}" class="btnStyle">Editar</a>
+        </button>
+      </div>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+{% endblock %}
